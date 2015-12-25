@@ -9,6 +9,9 @@ use RainLab\Blog\Models\Post as PostModel;
 class Plugin extends PluginBase
 {
 
+    // required plugins
+    public $require = ['RainLab.Blog'];
+
     /**
      * Returns information about this plugin.
      *
