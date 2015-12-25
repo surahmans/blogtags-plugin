@@ -2,6 +2,7 @@
 
 use System\Classes\PluginBase;
 use RainLab\Blog\Models\Post as PostModel;
+use RainLab\Blog\Controllers\Posts as PostsController;
 
 /**
  * BlogTags Plugin Information File
@@ -28,16 +29,46 @@ class Plugin extends PluginBase
     }
 
     /**
+     * Register form widgets
+     *
+     * @return array
+     */
+    public function registerFormWidgets()
+    {
+        return [
+            'Rahman\BlogTags\FormWidgets\Tagbox' => [
+                'label' => 'Tag box field',
+                'code'  => 'tagbox'
+            ]    
+        ];
+    }
+
+    /**
      * Extend rainlab.blog plugin
      *
      * @return void
      */
     public function boot()
     {
+        /**
+         * create relationship
+         */
         PostModel::extend(function($model) {
-            $model->belongsToMany = [
-                'tags' => ['Rahman\BlogTags\Models\Tag', 'table' => 'rahman_blogtags_posts_tags']
-            ];
+            $model->belongsToMany['tags'] = ['Rahman\BlogTags\Models\Tag', 'table' => 'rahman_blogtags_posts_tags'];
+        });
+
+        /**
+         * extend Rainlab\Blog\Controllers\Post
+         * add tag form widget
+         */
+        PostsController::extendFormFields(function($widget, $model, $context) {
+            $widget->addSecondaryTabFields([
+                'tags' => [
+                    'Label' => 'Tags box',
+                    'type'  => 'Rahman\BlogTags\FormWidgets\Tagbox',
+                    'tab'   => 'Tags'
+                ]
+            ]);
         });
     }
 

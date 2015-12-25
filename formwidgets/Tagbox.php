@@ -2,6 +2,7 @@
 
 use Backend\Classes\FormWidgetBase;
 use Config;
+use Rahman\BlogTags\Models\Tag;
 
 class TagBox extends FormWidgetBase
 {

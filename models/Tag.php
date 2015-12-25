@@ -8,6 +8,8 @@ use Model;
 class Tag extends Model
 {
 
+    use \October\Rain\Database\Traits\Sluggable;
+
     /**
      * @var string The database table used by the model.
      */
@@ -21,7 +23,12 @@ class Tag extends Model
     /**
      * @var array Fillable fields
      */
-    protected $fillable = [];
+    protected $fillable = ['name'];
+
+    /**
+     * @var array slugs fields
+     */
+    protected $slugs = ['slug' => 'name'];
 
     /**
      * @var array Relations
