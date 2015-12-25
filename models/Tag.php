@@ -26,14 +26,8 @@ class Tag extends Model
     /**
      * @var array Relations
      */
-    public $hasOne = [];
-    public $hasMany = [];
-    public $belongsTo = [];
-    public $belongsToMany = [];
-    public $morphTo = [];
-    public $morphOne = [];
-    public $morphMany = [];
-    public $attachOne = [];
-    public $attachMany = [];
+    public $belongsToMany = [
+        'posts' => ['RainLab\Blog\Models\Post', 'table' => 'rahman_blogtags_posts_tags']
+    ];
 
 }
