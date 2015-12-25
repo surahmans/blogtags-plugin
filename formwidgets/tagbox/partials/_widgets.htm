@@ -1,0 +1,25 @@
+<ul id="tags" class="tagHandlerContainer"></ul>
+
+<input type="hidden" name='Post[tags][]' class="tagbox" value="">
+
+<script type="text/javascript">
+$(document).on('render', function() {
+    $("#tags").tagHandler({
+        getURL: '/api/blog/post/<?= $id ?>',
+        initLoad: true,
+        minChars: 2,
+        afterAdd: function(tag) { tagbox(); },
+        afterDelete: function(tag) { tagbox(); },
+        autocomplete: true
+    });
+});
+
+$(window).on('load', function() {
+    tagbox();
+});
+
+function tagbox() {
+    var tags = $('#tags').tagHandler('getTags');
+    $(".tagbox").val(tags);
+}
+</script>
