@@ -44,6 +44,18 @@ class Plugin extends PluginBase
     }
 
     /**
+     * Register components
+     *
+     * @return array
+     */
+    public function registerComponents()
+    {
+        return [
+            'Rahman\BlogTags\Components\Tags' => 'tags'
+        ];
+    }
+
+    /**
      * Extend rainlab.blog plugin
      *
      * @return void

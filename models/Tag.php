@@ -37,4 +37,19 @@ class Tag extends Model
         'posts' => ['RainLab\Blog\Models\Post', 'table' => 'rahman_blogtags_posts_tags']
     ];
 
+    /**
+     * Lists tags for the page
+     *
+     * @param array $sortOrder 
+     * @return self
+     */
+    public function scopeListTags($query, $sortOrder)
+    {
+        $sortOrder = explode(' ', $sortOrder);
+        $sortedBy = $sortOrder[0];
+        $direction = $sortOrder[1];
+
+        return $query->orderBy($sortedBy, $direction);
+    }
+    
 }
