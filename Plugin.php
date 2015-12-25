@@ -23,7 +23,7 @@ class Plugin extends PluginBase
         return [
             'name'        => 'BlogTags',
             'description' => 'Blog tags for rainlab.blog plugin',
-            'author'      => 'Rahman',
+            'author'      => 'Surahman',
             'icon'        => 'icon-tags'
         ];
     }
