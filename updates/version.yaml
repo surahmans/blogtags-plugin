@@ -1,1 +1,5 @@
 1.0.1: First version of BlogTags
+1.0.2:
+    - create tags table
+    - create posts tags table
+    - create_tags_table.php
