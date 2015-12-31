@@ -10,7 +10,7 @@ class RelatedPosts extends ComponentBase
     /**
      * A collection of related posts
      *
-     * @return Collection
+     * @var Collection
      */
     public $posts;
 
@@ -51,7 +51,7 @@ class RelatedPosts extends ComponentBase
      *
      * @return Collection
      */
-    public function loadRelatedPosts()
+    protected function loadRelatedPosts()
     {
         $post = Post::with('tags')->whereSlug($this->property('slug'))->first();
 

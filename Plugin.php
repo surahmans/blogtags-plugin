@@ -52,7 +52,8 @@ class Plugin extends PluginBase
     {
         return [
             'Rahman\BlogTags\Components\Tags'         => 'tags',
-            'Rahman\BlogTags\Components\RelatedPosts' => 'relatedPosts'
+            'Rahman\BlogTags\Components\RelatedPosts' => 'relatedPosts',
+            'Rahman\BlogTags\Components\SearchPosts'  => 'searchPosts'
         ];
     }
 
