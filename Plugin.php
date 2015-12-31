@@ -51,7 +51,8 @@ class Plugin extends PluginBase
     public function registerComponents()
     {
         return [
-            'Rahman\BlogTags\Components\Tags' => 'tags'
+            'Rahman\BlogTags\Components\Tags'         => 'tags',
+            'Rahman\BlogTags\Components\RelatedPosts' => 'relatedPosts'
         ];
     }
 
