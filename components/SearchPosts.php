@@ -3,15 +3,22 @@
 use Cms\Classes\Page;
 use Cms\Classes\ComponentBase;
 use Rainlab\Blog\Models\Post;
+use Rahman\Blogtags\Models\Tag;
 
 class SearchPosts extends ComponentBase
 {
-
     /**
      * A collection of posts to display
      * @var Collection
      */
     public $posts;
+
+    /**
+     * A searched tag
+     *
+     * @var Tag
+     */
+    public $tag;
 
     /**
      * Parameter to use for the page number
@@ -106,6 +113,7 @@ class SearchPosts extends ComponentBase
         $this->prepareVars();
 
         $this->posts = $this->loadPosts();
+        $this->tag = $this->loadTag();
     }
 
     protected function loadPosts()
@@ -130,6 +138,11 @@ class SearchPosts extends ComponentBase
         });
 
         return $posts;
+    }
+
+    protected function loadTag()
+    {
+        return Tag::where('slug', $this->property('slug'))->first();
     }
 
     protected function prepareVars()

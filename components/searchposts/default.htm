@@ -1,5 +1,7 @@
-<h3>Search results for <i><strong>{{ slug }}</strong></i></h3>
 {% set posts = __SELF__.posts %}
+{% set tag = __SELF__.tag %}
+
+<h3>Search results for <i><strong>{% if tag %}{{ tag.name }}{% else %}{{ slug }}{% endif %}</strong></i></h3>
 
 <ul class="post-list">
     {% for post in posts %}
