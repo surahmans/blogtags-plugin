@@ -3,3 +3,6 @@
     - create tags table
     - create posts tags table
     - create_tags_table.php
+1.0.3:
+    - Improve styling
+    - Fix saving empty tags (Thanks to Vojta Svoboda)
