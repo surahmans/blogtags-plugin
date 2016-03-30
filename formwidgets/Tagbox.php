@@ -56,10 +56,14 @@ class TagBox extends FormWidgetBase
         $ids = [];
 
         foreach ($tags as $name) {
+            if (empty($name)) {
+                continue;
+            }
             $created = Tag::firstOrCreate(['name' => $name]);
 
             $ids[] = $created->id;
         }
+
         return $ids;
     }
     
