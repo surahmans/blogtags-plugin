@@ -6,3 +6,5 @@
 1.0.3:
     - Improve styling
     - Fix saving empty tags (Thanks to Vojta Svoboda)
+1.0.4:
+    - Fix can't uninstall the plugin
