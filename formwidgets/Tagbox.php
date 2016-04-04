@@ -30,8 +30,21 @@ class TagBox extends FormWidgetBase
     public function prepareVars()
     {
         $this->vars['id'] = $this->model->id;
+        $this->vars['tags'] = $this->loadTags();
     }
-    
+
+    public function loadTags()
+    {
+        $tags = [];
+
+        if ($this->model->tags) {
+            foreach($this->model->tags as $tag) {
+                $tags[] = $tag->name;
+            }
+        }
+
+        return implode(',', $tags);
+    }
 
     /**
      * load assets widgets
@@ -48,6 +61,8 @@ class TagBox extends FormWidgetBase
     /**
      * get tag id if exists or create it if not exists
      *
+     * @param string $value
+     *
      * @return array
      */
     public function getSaveValue($value)
@@ -60,7 +75,6 @@ class TagBox extends FormWidgetBase
                 continue;
             }
             $created = Tag::firstOrCreate(['name' => $name]);
-
             $ids[] = $created->id;
         }
 

@@ -1,6 +1,6 @@
 <ul id="tags" class="tagHandlerContainer"></ul>
 
-<input type="hidden" name='Post[tags][]' class="tagbox" value="">
+<input type="hidden" name='Post[tags][]' class="tagbox" value="<?= $tags ?>">
 
 <script type="text/javascript">
 $(document).on('render', function() {
@@ -14,12 +14,10 @@ $(document).on('render', function() {
     });
 });
 
-$(window).on('load', function() {
-    tagbox();
-});
-
 function tagbox() {
     var tags = $('#tags').tagHandler('getTags');
-    $(".tagbox").val(tags);
+    if (tags.length > 0) {
+        $(".tagbox").val(tags);
+    }
 }
 </script>
