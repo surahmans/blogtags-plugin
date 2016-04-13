@@ -5,7 +5,7 @@
 <script type="text/javascript">
 $(document).on('render', function() {
     $("#tags").tagHandler({
-        getURL: '/api/blog/post/<?= $id ?>',
+        getURL: "<?= route('api.get.taglist', ['postId' => $id]) ?>",
         initLoad: true,
         minChars: 2,
         afterAdd: function(tag) { tagbox(); },
