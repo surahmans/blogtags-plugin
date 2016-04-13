@@ -76,6 +76,9 @@ class Plugin extends PluginBase
          * add tag form widget
          */
         PostsController::extendFormFields(function($widget, $model, $context) {
+            if (! $model instanceof \Rainlab\Blog\Models\Post) 
+                return;
+
             $widget->addSecondaryTabFields([
                 'tags' => [
                     'Label' => 'Tags box',

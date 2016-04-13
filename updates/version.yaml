@@ -10,3 +10,5 @@
     - Fix can't uninstall the plugin
 1.0.5:
     - Fix can't load tag list if installed OctoberCMS in subdirectory
+1.0.6:
+    - Fix don't load tagbox when export/import
