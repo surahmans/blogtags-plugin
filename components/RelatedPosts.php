@@ -55,6 +55,9 @@ class RelatedPosts extends ComponentBase
     {
         $post = Post::with('tags')->whereSlug($this->property('slug'))->first();
 
+        if (! $post->tags->count())
+            return;
+
         $tagIds = $post->tags->lists('id');
 
         // a collection of related posts
