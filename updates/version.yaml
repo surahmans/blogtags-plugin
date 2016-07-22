@@ -12,3 +12,5 @@
     - Fix can't load tag list if installed OctoberCMS in subdirectory
 1.0.6:
     - Fix don't load tagbox when export/import
+1.0.7:
+    - Fix error if there is no associated tag to blog post
