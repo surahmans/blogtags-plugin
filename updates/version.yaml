@@ -14,3 +14,5 @@
     - Fix don't load tagbox when export/import
 1.0.7:
     - Fix error if there is no associated tag to blog post
+1.0.8:
+    - Improve to load tags in component init (Thanks to Vojta Svoboda)
