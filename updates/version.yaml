@@ -16,3 +16,5 @@
     - Fix error if there is no associated tag to blog post
 1.0.8:
     - Improve to load tags in component init (Thanks to Vojta Svoboda)
+1.0.9:
+    - Update tag field using taglist (Please update your CMS core) #6

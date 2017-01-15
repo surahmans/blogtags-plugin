@@ -29,21 +29,6 @@ class Plugin extends PluginBase
     }
 
     /**
-     * Register form widgets
-     *
-     * @return array
-     */
-    public function registerFormWidgets()
-    {
-        return [
-            'Rahman\BlogTags\FormWidgets\Tagbox' => [
-                'label' => 'Tag box field',
-                'code'  => 'tagbox'
-            ]    
-        ];
-    }
-
-    /**
      * Register components
      *
      * @return array
@@ -82,7 +67,8 @@ class Plugin extends PluginBase
             $widget->addSecondaryTabFields([
                 'tags' => [
                     'Label' => 'Tags box',
-                    'type'  => 'Rahman\BlogTags\FormWidgets\Tagbox',
+                    'type'  => 'taglist',
+                    'mode'  => 'relation',
                     'tab'   => 'Tags'
                 ]
             ]);
