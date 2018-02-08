@@ -79,7 +79,13 @@ class RelatedPosts extends ComponentBase
         if ($take = intVal($this->property('results')))
             $query->take($take);
 
-        return $query->get();
+        return $query->get()->each(function($post) {
+            $post->setUrl($this->postPage, $this->controller);
+
+            $post->categories->each(function($category) {
+                $category->setUrl($this->categoryPage, $this->controller);
+            });
+        });
     }
     
 }

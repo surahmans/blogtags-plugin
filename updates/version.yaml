@@ -18,3 +18,5 @@
     - Improve to load tags in component init (Thanks to Vojta Svoboda)
 1.0.9:
     - Update tag field using taglist (Please update your CMS core) #6
+1.0.10:
+    - Add url attribute to each related post
