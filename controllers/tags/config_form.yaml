@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Tag
+
+# Model Form Field configuration
+form: $/rahman/blogtags/models/tag/fields.yaml
+
+# Model Class name
+modelClass: Rahman\Blogtags\Models\Tag
+
+# Default redirect location
+defaultRedirect: rahman/blogtags/tags
+
+# Create page
+create:
+    title: Create Tag
+    redirect: rahman/blogtags/tags/update/:id
+    redirectClose: rahman/blogtags/tags
+
+# Update page
+update:
+    title: Edit Tag
+    redirect: rahman/blogtags/tags
+    redirectClose: rahman/blogtags/tags
+
+# Preview page
+preview:
+    title: Preview Tag

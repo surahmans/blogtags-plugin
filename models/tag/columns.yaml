@@ -6,3 +6,14 @@ columns:
     id:
         label: ID
         searchable: true
+    name:
+        label: Name
+        searchable: true
+    slug:
+        label: Slug
+        searchable: true
+    posts_count:
+        label: Count
+        relation: posts
+        useRelationCount: true
+

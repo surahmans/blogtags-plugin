@@ -1,5 +1,7 @@
 <?php namespace Rahman\BlogTags;
 
+use Event;
+use Backend;
 use System\Classes\PluginBase;
 use RainLab\Blog\Models\Post as PostModel;
 use RainLab\Blog\Controllers\Posts as PostsController;
@@ -73,6 +75,18 @@ class Plugin extends PluginBase
                 ]
             ]);
         });
-    }
 
+        // Extend the blog navigation menu
+        Event::listen('backend.menu.extendItems', function($manager) {
+           $manager->addSideMenuItems('RainLab.Blog', 'blog', [
+                'tags' => [
+                    'label' => 'Tags',
+                    'icon'  => 'icon-tags',
+                    'code'  => 'tags',
+                    'owner' => 'RainLab.Blog',
+                    'url'   => Backend::url('rahman/blogtags/tags')
+                ]
+            ]);
+        });
+    }
 }
