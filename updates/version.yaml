@@ -20,3 +20,5 @@
     - Update tag field using taglist (Please update your CMS core) #6
 1.0.10:
     - Add url attribute to each related post
+1.0.11:
+    - Add tags controller
