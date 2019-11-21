@@ -68,9 +68,9 @@ class RelatedPosts extends ComponentBase
             ->with('tags');
 
         $orderBy = DB::raw('(
-            select count(*) from `rahman_blogtags_posts_tags`
-            where `rahman_blogtags_posts_tags`.`post_id` = `rainlab_blog_posts`.`id`
-            and `rahman_blogtags_posts_tags`.`tag_id` in ('.implode(', ', $tagIds).'))');
+            select count(*) from rahman_blogtags_posts_tags
+            where rahman_blogtags_posts_tags.post_id = rainlab_blog_posts.id
+            and rahman_blogtags_posts_tags.tag_id in ('.implode(', ', $tagIds).'))');
 
         // order by most related tags
         $query->orderby($orderBy, 'desc');
