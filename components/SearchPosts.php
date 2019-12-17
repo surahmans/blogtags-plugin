@@ -33,6 +33,13 @@ class SearchPosts extends ComponentBase
     public $slug;
 
     /**
+     * Reference to the page name for linking to categories
+     *
+     * @var string
+     */
+    public $categoryPage;
+
+    /**
      * Reference to the page name for linking to posts.
      * @var string
      */
@@ -68,6 +75,13 @@ class SearchPosts extends ComponentBase
                 'validationMessage' => 'rainlab.blog::lang.settings.posts_per_page_validation',
                 'default'           => '10',
             ],
+            'categoryPage' => [
+                'title'       => 'rainlab.blog::lang.settings.posts_category',
+                'description' => 'rainlab.blog::lang.settings.posts_category_description',
+                'type'        => 'dropdown',
+                'default'     => 'blog/category',
+                'group'       => 'Links',
+            ],
             'postPage' => [
                 'title'       => 'rainlab.blog::lang.settings.posts_post',
                 'description' => 'rainlab.blog::lang.settings.posts_post_description',
@@ -82,6 +96,11 @@ class SearchPosts extends ComponentBase
                 'default'     => 'published_at desc'
             ]
         ];
+    }
+
+    public function getCategoryPageOptions()
+    {
+        return Page::sortBy('baseFileName')->lists('baseFileName', 'baseFileName');
     }
 
     public function getPostPageOptions()
@@ -135,6 +154,9 @@ class SearchPosts extends ComponentBase
          */
         $posts->each(function($post){
             $post->setUrl($this->postPage, $this->controller);
+            $post->categories->each(function($category) {
+                $category->setUrl($this->categoryPage, $this->controller);
+            });
         });
 
         return $posts;
@@ -154,6 +176,7 @@ class SearchPosts extends ComponentBase
          * Page links
          */
         $this->postPage = $this->page['postPage'] = $this->property('postPage');
+        $this->categoryPage = $this->page['categoryPage'] = $this->property('categoryPage');
     }
 
 }
