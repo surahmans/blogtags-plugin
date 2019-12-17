@@ -10,7 +10,12 @@
 
             <p class="info">
                 Posted
-                {% if post.categories.count %} in {% endif %}
+                {% if post.categories.count %} in 
+                    {% for category in post.categories %}
+                    <span class="mr-3">
+                        <i class="glyphicon glyphicon-book"></i><a href="{{ category.url }}">{{ category.name }}</a>
+                    </span>
+                {% endfor %}
                 on {{ post.published_at|date('M d, Y') }} 
                 <i class="glyphicon glyphicon-tags"></i>
                 {% for tag in post.tags %}
