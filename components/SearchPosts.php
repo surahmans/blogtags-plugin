@@ -114,6 +114,9 @@ class SearchPosts extends ComponentBase
 
         $this->posts = $this->loadPosts();
         $this->tag = $this->loadTag();
+        
+        // change page title
+        $this->page->title = $this->tag->name;
     }
 
     protected function loadPosts()
